@@ -1,0 +1,859 @@
+/* --- Reset y Tipografía Global --- */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+:root {
+    /* Paleta de colores */
+    --color-background-dark: #222222;
+    --color-sidebar-dark: #121214;
+    --color-accent: #39FF99;
+    --color-text-light: #FFFFFF;
+    --color-text-secondary: #9fa1a3;
+    --color-text-highlight: #74777a;
+
+    /* Variables de diseño de Showcase (Convertidas de SASS a CSS) */
+    --showcase-height: 17em;
+    --showcase-width: 90%;
+    --showcase-desc-width: 300px;
+    --showcase-transition: ease;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
+body {
+    margin: 0;
+    color: var(--color-text-light);
+    background-color: var(--color-background-dark);
+    min-height: 100vh;
+}
+
+/* --- Encabezado (Header) --- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: var(--color-sidebar-dark);
+    border-bottom: 1px solid var(--color-text-highlight);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#imagenbanner {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-light);
+}
+
+#imagenbanner::before {
+    content: "Andres Leal";
+    color: var(--color-accent);
+}
+
+.butonluna{display: flex;align-items: center;justify-content: space-between;gap: 5px;}
+
+
+
+nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+#luna{width: 30px;}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+#day-light {
+    display: flex;
+    align-items: center;
+}
+
+
+#day-light img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#day-light img::after {
+    content: "☰";
+    font-size: 24px;
+    color: var(--color-text-secondary);
+}
+
+/* --- Sección Principal (Main) --- */
+
+main {
+    display: flex;
+    padding: 30px 50px;
+    gap: 30px;
+    
+}
+
+/* --- Barra Lateral (Aside) --- */
+
+aside {
+    flex: 0 0 300px;
+    background-color: var(--color-sidebar-dark);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    height: max-content;
+}
+
+aside img {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.7); /* Un borde físico blanco */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), /* Un brillo suave de 10px */
+                0 0 20px rgba(255, 255, 255, 0.5); /* Un brillo más extendido de 20px */
+}
+
+aside h2 {
+    font-size: 30px;
+    margin: 0 0 5px 0;
+    color: var(--color-accent);
+}
+
+aside h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+    color: var(--color-text-secondary);
+}
+
+/* Contenedor de redes sociales */
+aside > div:nth-of-type(1) {
+    margin-bottom: 30px;
+}
+
+/* Botones */
+aside a[download] button,
+aside button:not([download]) {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    justify-self: center;
+}
+
+aside > a:nth-of-type(1) button {
+    background-color: var(--color-accent);
+    color: var(--color-background-dark);
+}
+
+aside > a:nth-of-type(1) button:hover {
+    background-color: #31e089;
+}
+
+/* Botón "Descargar CV" (segundo botón) */
+aside a[download] button {
+    background-color: var(--color-sidebar-dark);
+    border: 1px solid var(--color-text-highlight);
+    color: var(--color-text-light);
+}
+
+aside a[download] button:hover {
+    background-color: var(--color-accent);
+}
+
+
+/* --- Contenido Principal (main-space) --- */
+
+.main-space {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* --- Descripción (Hero/Intro) --- */
+
+.descripcion {
+    background-color: var(--color-sidebar-dark);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.descripcion h3 {
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--color-accent);
+    text-transform: uppercase;
+}
+
+.descripcion h3::before {
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 400;
+    text-transform: none; /* Asegura que el texto "HOLA! Soy" no esté en mayúsculas */
+}
+
+.descripcion p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* --- Servicios y Experiencia --- */
+
+.services-experience {
+    display: flex;
+    gap: 30px;
+    position: relative; /* Para posicionar el pseudo-elemento del título de servicios */
+}
+
+/* --- Servicios (Services) --- */
+
+.services {
+    flex: 1;
+    background-color: var(--color-sidebar-dark);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    gap: 3vw;
+}
+
+/* Título de Servicios (simulación) */
+.services::before {
+    content: "Tecnologias Principales";
+    position: absolute;
+    top: -15px; /* Ajuste la posición */
+    left: 15px;
+    color: var(--color-text-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.services img {
+    width: 8vw;
+    height: 8vw;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    background-color: var(--color-sidebar-dark); /* Placeholder */
+    border-radius: 0%;
+}
+
+.services img:hover {
+    opacity: 1;
+}
+
+/* --- Experiencia (Experience) --- */
+
+.experience {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.experience > div {
+    background-color: var(--color-sidebar-dark);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience h1 {
+    font-size: 40px;
+    color: var(--color-accent);
+    margin: 0 0 5px 0;
+}
+
+.experience h3 {
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 400;
+}
+
+/* --- Proyectos (Projects) --- */
+
+.projects {
+    position: relative;
+    padding-top: 30px;
+}
+
+.projects::before {
+    content: "PROYECTOS";
+    position: absolute;
+    top: 0;
+    left: 0; /* Lo moví a la izquierda para que sea consistente */
+    color: var(--color-text-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- Estilos de Íconos Sociales (Corregido y Adaptado al Dark Mode) --- */
+
+.contenedor-redes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+}
+.example-2 .icon-content {
+    margin: 0 10px;
+    position: relative;
+}
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -50px;
+}
+.example-2 .icon-content a {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: var(--color-text-light); /* Cambiado de #4d4d4d para dark mode */
+    background-color: var(--color-background-dark); /* Fondo oscuro en lugar de blanco */
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--color-text-highlight); /* Borde sutil */
+}
+.example-2 .icon-content a:hover {
+    box-shadow: 3px 2px 45px 0px rgba(0, 0, 0, 0.5); /* Sombra más dark mode */
+}
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 1;
+    width: 20px; /* Reducido para que se vea mejor */
+    height: 20px;
+}
+.example-2 .icon-content a:hover {
+    color: white;
+}
+.example-2 .icon-content a .filled {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #24262a;
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(
+        45deg,
+        #405de6,
+        #5b51db,
+        #b33ab4,
+        #c135b4,
+        #e1306c,
+        #fd1f1f
+    );
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+    background-color: #ff0000;
+}
+
+/* --- Estilos de Proyectos (Showcase) - Corregido de SASS a CSS --- */
+
+.showcase {
+    position: relative;
+    width: var(--showcase-width);
+    height: var(--showcase-height);
+    margin: 1em 0; /* Centrado removido, usamos flexbox */
+    overflow: hidden;
+    background: transparent;
+}
+
+.thumbnail {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: var(--showcase-desc-width);
+    z-index: 1;
+    background: var(--color-background-dark);
+    background-position: 50% 50%;
+    background-size: cover;
+    transition: right 250ms var(--showcase-transition), left 250ms var(--showcase-transition);
+}
+
+.thumbnail--awesome {
+    /* Mantenemos la imagen de ejemplo */
+    background-image: url("./sources/pokemon.jpg");
+}
+
+#thum2{background-image: url("./sources/eos.png");}
+
+#thum3{background-image: url("./sources/gimnasio.jpg");}
+.thumbnail__overlay {
+    /* Cálculo de altura en CSS plano */
+    padding-top: calc(var(--showcase-height) / 2 - 0.5em);
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 250ms var(--showcase-transition);
+    
+}
+
+.desc {
+    position: absolute;
+    width: var(--showcase-desc-width);
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 2;
+    background: var(--color-text-light); /* Fondo inicial blanco */
+    text-align: center;
+    transition: background 250ms var(--showcase-transition), color 250ms, width 250ms var(--showcase-transition), padding 250ms var(--showcase-transition);
+    color: var(--color-background-dark);
+}
+
+/* Pseudo-elemento (reemplazando &:after con un selector directo) */
+.desc::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    margin-top: -10px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent var(--color-text-light) transparent transparent; /* Color de fondo inicial */
+    transition: border-color 250ms;
+}
+
+.showcase:hover .thumbnail {
+    right: 325px;
+    left: -25px;
+    background: var(--color-background-dark);
+}
+
+.showcase:hover .thumbnail__overlay {
+    opacity: 1;
+}
+
+.showcase:hover .desc {
+    width: 350px;
+    padding-left: 45px;
+    padding-right: 45px;
+    background: var(--color-sidebar-dark); /* Gris oscuro al hacer hover */
+    color: var(--color-text-light); /* Texto blanco al hacer hover */
+}
+
+.showcase:hover .desc::after {
+    border-color: transparent var(--color-sidebar-dark) transparent transparent;
+}
+
+/* Inverted Project */
+.showcase--inverted .thumbnail {
+    right: 0;
+    left: var(--showcase-desc-width);
+}
+
+.showcase--inverted .desc {
+    left: 0;
+    right: auto;
+}
+
+.showcase--inverted .desc::after {
+    left: auto;
+    right: -20px;
+    border-color: transparent transparent transparent var(--color-text-light); /* Fondo inicial */
+}
+
+.showcase--inverted:hover .thumbnail {
+    left: 325px;
+    right: -25px;
+}
+
+.showcase--inverted:hover .desc::after {
+    border-color: transparent transparent transparent var(--color-sidebar-dark); /* Color de hover */
+}
+
+/* Títulos y texto dentro de .desc (Adaptado) */
+.desc p:first-of-type {
+    color: var(--color-accent);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.desc h2 {
+    color: var(--color-background-dark);
+    margin: 5px 0 10px 0;
+}
+
+.showcase:hover .desc h2 {
+    color: var(--color-text-light);
+}
+
+.desc p:last-of-type {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+/* Button styling */
+.btn {
+    padding: 0.8em 1.5em;
+    border: 0.15em solid var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 250ms;
+}
+
+.btn:hover {
+    background: var(--color-accent);
+    color: var(--color-background-dark);
+}
+
+/* --- Footer (Simulación de Footer) --- */
+body::after {
+    content: "Copyright ©2025. All rights reserved";
+    display: block;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #3b3b3b;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fdfdfd;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+
+
+
+
+
+
+
+
+/*  Support me if you like it */
+.support {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.support a {
+  color: #292c35;
+  font-size: 32px;
+  backface-visibility: hidden;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.support a:hover{
+  transform: scale(1.1);
+}
+
+/* --- RESPONSIVE DESIGN (Media Queries) --- */
+
+@media (max-width: 1000px) {
+    /* 1. Cambia la dirección del contenedor principal de horizontal (flex-row) a vertical (flex-column) */
+    main {
+        flex-direction: column;
+        padding: 20px; /* Ajusta el padding en pantallas pequeñas */
+        gap: 20px;
+    }
+
+    /* 2. Hace que la barra lateral (aside) ocupe todo el ancho */
+    aside {
+        flex: 1 1 100%; /* Permite que ocupe todo el ancho disponible */
+        width: 100%;
+        max-width: none; /* Asegura que no haya un límite de ancho */
+        padding: 25px 20px; /* Ajusta el padding */
+    }
+    
+    /* 3. El contenedor principal también debe ocupar todo el ancho */
+    .main-space {
+        width: 100%;
+    }
+
+    /* 4. Hace que la fila de Servicios y Experiencia se apile verticalmente */
+    .services-experience {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* 5. Asegura que el contenedor de servicios no tenga un espacio fijo (aunque en este diseño no era fijo, es buena práctica) */
+    .services {
+        width: 100%;
+        justify-content: space-between; /* Mejora la distribución de los íconos */
+    }
+
+    .services img{width: 20vw;height: 20vw;}
+
+    /* 6. En la experiencia, hace que los dos bloques de estadísticas se apilen verticalmente para mejor legibilidad */
+    .experience {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 7. Ajustes en la navegación y el header para que no se vean apretados */
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan si es necesario */
+        justify-content: center; /* Centra los elementos */
+    }
+
+    nav {
+        order: 3; /* Mueve la navegación debajo del logo y el toggle en pantallas pequeñas */
+        flex-basis: 100%; /* Ocupa todo el ancho */
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    nav a {
+        margin: 0 10px;
+    }
+
+    /* 8. Ajustes para los proyectos (Showcase) en móviles */
+    .showcase {
+        height: auto;
+        min-height: 200px; /* Altura mínima para que se vea */
+        width: 100%;
+        margin: 1em 0;
+    }
+    
+    /* Desactivar el efecto de hover y poner la descripción debajo de la miniatura */
+    .showcase .thumbnail {
+        position: relative;
+        right: 0 !important; /* Desactiva el valor de hover */
+        left: 0 !important;  /* Desactiva el valor de hover */
+        height: 200px; /* Altura fija para la imagen */
+    }
+    
+    .showcase .desc {
+        position: relative;
+        width: 100%;
+        right: 0;
+        left: 0;
+        padding: 20px;
+        background: var(--color-sidebar-dark); /* Color oscuro fijo para la descripción */
+        color: var(--color-text-light);
+    }
+    
+    /* Eliminar el triángulo (flecha) en móviles */
+    .showcase .desc::after {
+        content: none;
+    }
+    
+    /* Desactivar el hover de la miniatura y la descripción */
+    .showcase:hover .thumbnail {
+        right: 0; 
+        left: 0;
+    }
+    
+    .showcase:hover .desc {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        background: var(--color-sidebar-dark);
+        color: var(--color-text-light);
+    }
+
+    .desc h2 {
+        color: var(--color-text-light); /* Asegura que el texto H2 se vea blanco */
+    }
+    
+    /* Asegurar que la descripción de los proyectos invertidos también sea normal */
+    .showcase--inverted .thumbnail {
+        left: 0;
+    }
+
+ aside img{    height: 35vh;
+    width: 35vh;}
+}
+
+/* --- Estilos para el Modo Claro (Light Mode) --- */
+
+.light-mode {
+    /* * El selector .light-mode es el que debes aplicar 
+     * al body o al contenedor principal para cambiar el tema.
+     */
+
+    /* Colores base: Cambian el fondo oscuro y el texto claro */
+    --color-background-dark: #dbdbdb; /* Fondo principal muy claro/gris claro */
+    --color-sidebar-dark: #c2c2c2; /* Fondo de sidebar/tarjetas blanco */
+    
+    /* Colores de texto e interfaz: Cambian el texto de blanco a oscuro */
+    --color-text-light: #222222; /* Texto principal oscuro */
+    --color-text-secondary: #3a3a3a; /* Texto secundario gris */
+    --color-text-highlight: #000000; /* Líneas de división y bordes más claros */
+    --color-accent: #22a15f;
+}
+
+
+de .desc {
+    background: var(--color-sidebar-dark);
+    color: var(--color-text-light);
+}
+
+.light-mode .desc::after {
+
+    border-color: transparent var(--color-sidebar-dark) transparent transparent; 
+}
+
+.light-mode .showcase:hover .desc {
+    background: var(--color-background-dark); /* Fondo principal (gris claro) al hacer hover */
+    color: var(--color-text-light); /* Texto principal (oscuro) al hacer hover */
+}
+
+.light-mode .showcase:hover .desc::after {
+    /* Ajusta la flecha para que coincida con el color de hover (gris claro) */
+    border-color: transparent var(--color-background-dark) transparent transparent;
+}
+
+/* Proyecto invertido */
+.light-mode .showcase--inverted .desc::after {
+    /* Ajusta la flecha inicial */
+    border-color: transparent transparent transparent var(--color-sidebar-dark);
+}
+
+.light-mode .showcase--inverted:hover .desc::after {
+    /* Ajusta la flecha de hover */
+    border-color: transparent transparent transparent var(--color-background-dark);
+}
+
+/* El texto H2 en la descripción del proyecto debe ser oscuro en modo claro */
+.light-mode .desc h2 {
+    color: var(--color-text); 
+}
+
+.light-mode .showcase:hover .desc h2 {
+    color: var(--color-text-light); 
+}
+
+
+/* --- Estilos del Botón de Redes Sociales en Modo Claro --- */
+.light-mode .example-2 .icon-content a {
+    /* Cambia el borde de los íconos para que se vea bien en fondo claro */
+    background-color: var(--color-sidebar-dark);
+    border: 1px solid var(--color-text-highlight);
+    color: var(--color-text-secondary); /* Los íconos se ven grises */
+}
+
+/* El fondo del header/navbar debe seguir el color del sidebar */
+.light-mode header {
+    background-color: var(--color-sidebar-dark);
+}
+
+/* El borde de la foto de perfil en el aside debe ser más sutil */
+.light-mode aside img {
+    border-color: var(--color-text-light);
+    border: 3px black;
+
+}
