@@ -458,6 +458,7 @@ aside a[download] button:hover {
 #thum2{background-image: url("./sources/eos.png");}
 
 #thum3{background-image: url("./sources/gimnasio.jpg");}
+#thum4{background-image: url("./sources/legostarwars.avif");}
 .thumbnail__overlay {
     /* Cálculo de altura en CSS plano */
     padding-top: calc(var(--showcase-height) / 2 - 0.5em);
